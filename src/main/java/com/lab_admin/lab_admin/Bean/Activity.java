@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Activity {
     @Id
     @GeneratedValue
-    private Integer activit_id;
+    private Integer activity_id;
     private String activity_name;
     private String activity_introduction;
     private String activity_imagepath;
@@ -18,11 +18,11 @@ public class Activity {
     }
 
     public Integer getActivit_id() {
-        return activit_id;
+        return activity_id;
     }
 
-    public void setActivit_id(Integer activit_id) {
-        this.activit_id = activit_id;
+    public void setActivit_id(Integer activity_id) {
+        this.activity_id = activity_id;
     }
 
     public String getActivity_name() {
