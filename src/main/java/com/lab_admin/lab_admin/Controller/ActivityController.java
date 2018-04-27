@@ -76,4 +76,22 @@ public class ActivityController {
         activityRespository.delete(activity_id);
         return "redirect:/activities";
     }
+
+
+    /**
+     * 通过id更新一个activity的数据，
+     * 需要注意的是前端的界面中，传输数据的key必须和Activity类中声明的变量名一致，不然会传入空值
+     *
+     * 测试通过
+     * @param activity_id
+     * @param activity
+     * @return
+     */
+    @PutMapping(value = "/activity/update/{id}")
+    public String updateActivity(@PathVariable("id") Integer activity_id,
+                                    Activity activity){
+        activity.setActivit_id(activity_id);
+        activityRespository.save(activity);
+        return  "";
+    }
 }
