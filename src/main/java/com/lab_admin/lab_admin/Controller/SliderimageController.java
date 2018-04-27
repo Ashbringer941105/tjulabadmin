@@ -69,6 +69,7 @@ public class SliderimageController {
     /**
      * 根据id删除一个Slideriamge图像的信息
      * 测试成功
+     * aaaaaaaaaaaaa
      * @param sliderimage_id
      * @return
      */
