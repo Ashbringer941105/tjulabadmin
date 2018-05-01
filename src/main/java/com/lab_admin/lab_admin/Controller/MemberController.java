@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Controller
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class MemberController {
     @Autowired
     private MemberRespository memberRespository;
@@ -24,7 +24,8 @@ public class MemberController {
     @GetMapping(value = "/members")
     public String  memberList(Model model){
         List<Member> memberList = memberRespository.findAll();
-        return "";
+        model.addAttribute("memberList",memberList);
+        return "member_table";
     }
 
     /**
@@ -34,11 +35,16 @@ public class MemberController {
      * @param id
      * @return
      */
+//    传递参数的方式
+//<form th:action="@{|/member/${member.getId()}|}" method="get" th:method="get">
+//    <button type="submit" >修改信息</button>
+//</form>
     @GetMapping(value = "/member/{id}")
-    public Member  getMember(@PathVariable("id") Integer id,
+    public String  getMember(@PathVariable("id") Integer id,
                             Model model){
         Member member = memberRespository.findOne(id);
-        return member;
+        model.addAttribute("member",member);
+        return "test";
     }
 
     /**

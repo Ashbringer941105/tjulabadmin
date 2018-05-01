@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Controller
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class SliderimageController {
     @Autowired
     private SliderimageRespository sliderimageRespository;
@@ -24,19 +24,26 @@ public class SliderimageController {
     @GetMapping(value = "/sliderimages")
     public String  sliderimagesList(Model model){
         List<Sliderimage> sliderimageList = sliderimageRespository.findAll();
-        return "";
+        model.addAttribute("sliderimageList",sliderimageList);
+        return "sliderimage_table";
     }
 
     /**
-     * 根据id获取单个sliderimage
+     * 根据id 获取单个sliderimage,
      * 测试成功
      * @param sliderimage_id
      * @return
      */
+    //对应的form表的样子是这样的
+//     <form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="get" th:method="get">
+//        <button type="submit" >修改信息</button>
+//     </form>
     @GetMapping(value = "/sliderimage/{sliderimage_id}")
-    public String getSliderimage(@PathVariable("sliderimage_id") Integer sliderimage_id){
+    public String getSliderimage(@PathVariable("sliderimage_id") Integer sliderimage_id,
+                                 Model model){
         Sliderimage sliderimage = sliderimageRespository.findOne(sliderimage_id);
-        return "";
+        model.addAttribute("sliderimage",sliderimage);
+        return "test";
     }
 
     /**
@@ -69,7 +76,6 @@ public class SliderimageController {
     /**
      * 根据id删除一个Slideriamge图像的信息
      * 测试成功
-     * aaaaaaaaaaaaa
      * @param sliderimage_id
      * @return
      */

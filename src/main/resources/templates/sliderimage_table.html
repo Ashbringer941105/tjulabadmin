@@ -499,9 +499,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Panel title</h3>
+                                <!--这里是收起和刷新小按键-->
                                 <div class="tools">
                                     <a class="btn-link collapses panel-collapse" href="javascript:;"></a>
-                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>	                                
+                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>
                                 </div>
                             </div>
                             <!--table主体-->
@@ -509,21 +510,21 @@
                                 <table class="table table-bordered table-dataTable">
                                     <thead>
                                         <tr>
-                                            <th>姓名</th>
-                                            <th>职业</th>
-                                            <th>性别</th>
-                                            <th>Age</th>
-                                            <th>主页链接</th>
+                                            <th>图片</th>
+                                            <th>图片信息</th>
+                                            <th>时间</th>
+                                            <!--<th>Age</th>-->
+                                            <!--<th>主页链接</th>-->
                                             <th>修改信息</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>姓名</th>
-                                            <th>职业</th>
-                                            <th>性别</th>
-                                            <th>年龄</th>
-                                            <th>主页链接</th>
+                                            <th>图片</th>
+                                            <th>图片信息</th>
+                                            <th>时间</th>
+                                            <!--<th>年龄</th>-->
+                                            <!--<th>主页链接</th>-->
                                             <th>修改信息</th>
                                         </tr>
                                     </tfoot>
@@ -537,20 +538,21 @@
                                             <!--<td>$320,800</td>-->
                                         <!--</tr>-->
                                         <!--首先将所有老师展示出来-->
-                                        <tr th:each="member:${memberList}">
-                                            <td th:text="${member.getName()}"></td>
-                                            <td th:text="${member.getRolename()}"></td>
-                                            <td th:text="${member.getGender()}"></td>
-                                            <td>年龄</td>
-                                            <td><a th:href="${member.getHomepage()}" th:text="${member.getHomepage()}"></a></td>
+                                        <tr th:each="sliderimage:${sliderimageList}">
                                             <td>
-                                                <!--<form th:action="@{/edit}" method="post" th:method="post">-->
-                                                    <!--<input type="hidden" th:value="${member.getId()}"  id="id" name="id" />-->
-                                                    <!--<button type="submit" >修改信息</button>-->
-                                                <!--</form>-->
-                                                <form th:action="@{|/member/${member.getId()}|}" method="get" th:method="get">
+                                                <!--<img src="${sliderimage.getSliderimage_imagepath()}">-->
+                                                <img src="/static/demo/images/img-imgBlock-01.jpg" height="100">
+                                            </td>
+                                            <td th:text="${sliderimage.getSliderimage_info()}"></td>
+                                            <td th:text="${sliderimage.getSliderimage_date()}"></td>
+                                            <!--<td>年龄</td>-->
+                                            <!--<td><a th:href="" th:text=""></a></td>-->
+                                            <td >
+                                                <form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="get" th:method="get">
+                                                    <!--<input type="hidden" th:value="sliderimage.getSliderimage_id()"  id="sliderimage_id" name="sliderimage_id" />-->
                                                     <button type="submit" >修改信息</button>
                                                 </form>
+                                                <!--<a th:href="|/sliderimage/${sliderimage.getSliderimage_id()}|"><button>修改信息</button></a>-->
                                             </td>
                                         </tr>
                                     </tbody>

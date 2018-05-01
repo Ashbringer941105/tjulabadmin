@@ -23,23 +23,23 @@ public class AdminController {
         return "index";
     }
 
-
-    @RequestMapping("/member_table")
-    public String member_table(Model model){
-        System.out.println("进入member_table函数");
-        List<Member> memberList = memberRespository.findAll();
-        model.addAttribute("memberList",memberList);
-        return "member_table";
-    }
-
-    @RequestMapping("/edit")
-    public String edit_member(@RequestParam("id") Integer id,
-                               Model model){
-        System.out.println("/edit/{id} 接收到的消息为"+id.toString());
-//        Member member = memberRespository.findOne(id);
-//        model.addAttribute("member",member);
-        return "form-advanced";
-    }
+//
+//    @RequestMapping("/member_table")
+//    public String member_table(Model model){
+//        System.out.println("进入member_table函数");
+//        List<Member> memberList = memberRespository.findAll();
+//        model.addAttribute("memberList",memberList);
+//        return "member_table";
+//    }
+//
+//    @RequestMapping("/edit")
+//    public String edit_member(@RequestParam("id") Integer id,
+//                               Model model){
+//        System.out.println("/edit/{id} 接收到的消息为"+id.toString());
+////        Member member = memberRespository.findOne(id);
+////        model.addAttribute("member",member);
+//        return "form-advanced";
+//    }
 
 
 }
