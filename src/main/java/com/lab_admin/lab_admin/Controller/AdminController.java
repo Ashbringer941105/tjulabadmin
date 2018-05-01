@@ -23,6 +23,11 @@ public class AdminController {
         return "index";
     }
 
+    @RequestMapping("/add_member")
+    public String add_member(Model model){
+        return "add_member";
+    }
+
 //
 //    @RequestMapping("/member_table")
 //    public String member_table(Model model){

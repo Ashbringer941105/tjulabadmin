@@ -245,8 +245,8 @@
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuOne">
                             <ul>
-                                <li><a href="member_table.html">Basic Tables</a></li>
-                                <li><a href="member_table.html">Data Table</a></li>
+                                <li><a href="/members">成员管理</a></li>
+                                <li><a href="/sliderimages">轮播图片管理</a></li>
                                 <li><a href="table-editable.html">Editable Table</a></li>
                             </ul>
                         </div>
@@ -494,13 +494,13 @@
             <div class="content-wrap">  <!--START: Content Wrap-->
                 <!--content-wrap设置了padding-->
                 <div class="row">
-                    
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Panel title</h3>
                                 <!--这里是收起和刷新小按键-->
                                 <div class="tools">
+                                    <a href="/add_sliderimage"><button type="button" class="btn btn-success">添加图片</button></a>
                                     <a class="btn-link collapses panel-collapse" href="javascript:;"></a>
                                     <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>
                                 </div>
@@ -513,9 +513,8 @@
                                             <th>图片</th>
                                             <th>图片信息</th>
                                             <th>时间</th>
-                                            <!--<th>Age</th>-->
-                                            <!--<th>主页链接</th>-->
                                             <th>修改信息</th>
+                                            <th>删除信息</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -523,21 +522,11 @@
                                             <th>图片</th>
                                             <th>图片信息</th>
                                             <th>时间</th>
-                                            <!--<th>年龄</th>-->
-                                            <!--<th>主页链接</th>-->
                                             <th>修改信息</th>
+                                            <th>删除信息</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <!--<tr>-->
-                                            <!--<td>Tiger Nixon</td>-->
-                                            <!--<td>System Architect</td>-->
-                                            <!--<td>Edinburgh</td>-->
-                                            <!--<td>61</td>-->
-                                            <!--<td>2011/04/25</td>-->
-                                            <!--<td>$320,800</td>-->
-                                        <!--</tr>-->
-                                        <!--首先将所有老师展示出来-->
                                         <tr th:each="sliderimage:${sliderimageList}">
                                             <td>
                                                 <!--<img src="${sliderimage.getSliderimage_imagepath()}">-->
@@ -545,14 +534,15 @@
                                             </td>
                                             <td th:text="${sliderimage.getSliderimage_info()}"></td>
                                             <td th:text="${sliderimage.getSliderimage_date()}"></td>
-                                            <!--<td>年龄</td>-->
-                                            <!--<td><a th:href="" th:text=""></a></td>-->
                                             <td >
                                                 <form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="get" th:method="get">
-                                                    <!--<input type="hidden" th:value="sliderimage.getSliderimage_id()"  id="sliderimage_id" name="sliderimage_id" />-->
-                                                    <button type="submit" >修改信息</button>
+                                                    <button type="submit" class="btn btn-primary">修改信息</button>
                                                 </form>
-                                                <!--<a th:href="|/sliderimage/${sliderimage.getSliderimage_id()}|"><button>修改信息</button></a>-->
+                                            </td>
+                                            <td>
+                                                <form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="delete" th:method="delete">
+                                                    <button type="submit" class="btn btn-danger">删除成员</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -560,7 +550,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>  <!--END: Content Wrap-->
             

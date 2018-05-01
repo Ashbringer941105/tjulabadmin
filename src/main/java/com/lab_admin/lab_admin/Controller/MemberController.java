@@ -48,27 +48,34 @@ public class MemberController {
     }
 
     /**
-     * 添加成员方法
+     * 添加成员方法,测试成功
      * 测试通过
      * @param member
      * @return
      */
     @PostMapping(value = "/member")
     public String addMember(Member member){
+        if(member.getHomepage()==""){
+            member.setHomepage("#");
+        }
         memberRespository.save(member);
-        return "";
+        return "test";
     }
 
     /**
-     * 删除成员的方法
+     * 删除成员的方法 将成员删除之后，页面重定向到成员列表界面
      * 测试成功
      * @param id
      * @return
      */
+//    提交请求的form表格为
+//<form th:action="@{|/member/${member.getId()}|}" method="delete" th:method="delete">
+//    <button type="submit" class="btn btn-primary">删除成员</button>
+//</form>
     @DeleteMapping(value = "/member/{id}")
     public String deleteMember(@PathVariable("id") Integer id){
         memberRespository.delete(id);
-        return "";
+        return "redirect:/members";
     }
 
     /**

@@ -245,8 +245,8 @@
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuOne">
                             <ul>
-                                <li><a href="member_table.html">Basic Tables</a></li>
-                                <li><a href="member_table.html">Data Table</a></li>
+                                <li><a href="/members">成员管理</a></li>
+                                <li><a href="/sliderimages">轮播图片管理</a></li>
                                 <li><a href="table-editable.html">Editable Table</a></li>
                             </ul>
                         </div>
@@ -485,7 +485,7 @@
             <div class="page-header">
                 <h1>Data Tables <small>Bootstrap Data Table</small></h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="/index">Home</a></li>
                     <li><a href="index.php">Tables</a></li>
                     <li class="active">Data Table</li>
                 </ol>
@@ -500,8 +500,9 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Panel title</h3>
                                 <div class="tools">
+                                    <a href="/add_member"><button type="button" class="btn btn-success">添加成员</button></a>
                                     <a class="btn-link collapses panel-collapse" href="javascript:;"></a>
-                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>	                                
+                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>
                                 </div>
                             </div>
                             <!--table主体-->
@@ -515,6 +516,7 @@
                                             <th>Age</th>
                                             <th>主页链接</th>
                                             <th>修改信息</th>
+                                            <th>删除信息</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -525,6 +527,7 @@
                                             <th>年龄</th>
                                             <th>主页链接</th>
                                             <th>修改信息</th>
+                                            <th>删除信息</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -544,12 +547,13 @@
                                             <td>年龄</td>
                                             <td><a th:href="${member.getHomepage()}" th:text="${member.getHomepage()}"></a></td>
                                             <td>
-                                                <!--<form th:action="@{/edit}" method="post" th:method="post">-->
-                                                    <!--<input type="hidden" th:value="${member.getId()}"  id="id" name="id" />-->
-                                                    <!--<button type="submit" >修改信息</button>-->
-                                                <!--</form>-->
                                                 <form th:action="@{|/member/${member.getId()}|}" method="get" th:method="get">
-                                                    <button type="submit" >修改信息</button>
+                                                    <button type="submit" class="btn btn-primary">修改信息</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form th:action="@{|/member/${member.getId()}|}" method="delete" th:method="delete">
+                                                    <button type="submit" class="btn btn-danger">删除成员</button>
                                                 </form>
                                             </td>
                                         </tr>

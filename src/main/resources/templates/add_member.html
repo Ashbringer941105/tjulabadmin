@@ -289,7 +289,7 @@
                         <div class="sub-menu collapse secondary" id="submenuThree">
                             <ul>
                                 <li><a href="form-basic.html">Basic</a></li>
-                                <li><a href="form-advanced.html">Advanced Controls</a></li>
+                                <li><a href="add_member.html">Advanced Controls</a></li>
                                 <li><a href="form-css-toggle.html">CSS Toggle</a></li>
                                 <li><a href="form-validation.html">Validation</a></li>
                                 <li><a href="form-wizard.html">Wizard</a></li>
@@ -503,46 +503,59 @@
                 <div class="col-md-10"  align="center">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Horizontal form</h3>
+                            <h3 class="panel-title"> 人员信息</h3>
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" th:action="@{|/member|}" method="post" th:method="post">
                                 <div class="form-group">
-                                    <label for="inputUserName" class="col-sm-1 control-label" >Full Name</label>
+                                    <label for="name" class="col-sm-1 control-label" >姓名</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="inputUserName" placeholder="Full Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                        <label class="col-sm-1 control-label" for="rolename" >角色职称</label>
+                                        <div class="col-sm-2">
+                                            <select name="rolename" class="form-control custom-Select" id="rolename">
+                                                <option value="在校研究生">在校研究生</option>
+                                                <option value="教师">教师</option>
+                                                <option value="毕业生">毕业生</option>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label" for="gender" >性别</label>
+                                    <div class="col-sm-2">
+                                        <select name="gender" class="form-control custom-Select" id="gender">
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                    <label for="homepage" class="col-sm-1 control-label">主页链接</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="homepage" placeholder="homepage" name="homepage">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword4" class="col-sm-4 control-label">Confirm Password</label>
-                                    <div class="col-sm-8">
+                                    <label for="inputPassword4" class="col-sm-1 control-label">Confirm Password</label>
+                                    <div class="col-sm-9">
                                         <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm Password">
                                     </div>
                                 </div>
+                                <!--<div class="form-group">-->
+                                    <!--<div class="col-sm-offset-4 col-sm-8">-->
+                                        <!--<div class="checkbox checkbox-primary">-->
+                                            <!--<input id="checkbox1" class="styled" type="checkbox" checked>-->
+                                            <!--<label for="checkbox1">I agree to the terms</label>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                                 <div class="form-group">
-                                    <div class="col-sm-offset-4 col-sm-8">
-                                        <div class="checkbox checkbox-primary">
-                                            <input id="checkbox1" class="styled" type="checkbox" checked>
-                                            <label for="checkbox1">I agree to the terms</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-default">Sign up</button>
+                                    <div class="col-sm-offset-2 col-sm-7">
+                                        <button type="submit" class="btn btn-default">添加人员</button>
                                     </div>
                                 </div>
                             </form>

@@ -16,7 +16,7 @@ public class SliderimageController {
     private SliderimageRespository sliderimageRespository;
 
     /**
-     * 获取所有SliderImage的方法
+     * 获取所有SliderImage的方法，编写完成
      * 测试成功
      * @param model
      * @return
@@ -29,7 +29,7 @@ public class SliderimageController {
     }
 
     /**
-     * 根据id 获取单个sliderimage,
+     * 根据id 获取单个sliderimage,编写完成，只差页面
      * 测试成功
      * @param sliderimage_id
      * @return
@@ -74,14 +74,18 @@ public class SliderimageController {
     }
 
     /**
-     * 根据id删除一个Slideriamge图像的信息
+     * 根据id 删除一个Slideriamge图像的信息，编写完成，
      * 测试成功
      * @param sliderimage_id
      * @return
      */
+//    提交请求的form表单为
+//<form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="delete" th:method="delete">
+//  <button type="submit" class="btn btn-danger">删除成员</button>
+//</form>
     @DeleteMapping(value = "/sliderimage/{sliderimage_id}")
     public String deleteSliderimage(@PathVariable("sliderimage_id") Integer sliderimage_id){
         sliderimageRespository.delete(sliderimage_id);
-        return "";
+        return "redirect:/sliderimages";
     }
 }
