@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Year Calendar | Big Ben Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="author" content="Prakasam Mathaiyan" />
-    <meta name="description" content=""/>
+    <meta charset="utf-8">
+    <title>Data Tables | Big Ben Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="Prakasam Mathaiyan">
+    <meta name="description" content="">
 
     <!--[if IE]>
     <script th:src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script th:src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" th:src="@{static/assets/plugins/lib/modernizr.js}"></script>
-    <link rel="icon" th:href="@{static/assets/images/favicon.png}" type="image/gif" />
-    
-    <link rel="stylesheet" type="text/css" th:href="@{static/assets/plugins/bootstrap/bootstrap.css}" />
-    <link rel="stylesheet" type="text/css" media="all"  th:href="@{static/assets/plugins/year-calendar/css/bootstrap-year-calendar.min.css}" />
-    
-    <link rel="stylesheet" type="text/css" th:href="@{static/assets/css/main.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{static/assets/css/style-default.css}" />
+    <link rel="icon" th:href="@{static/assets/images/favicon.png}" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" th:href="@{static/assets/plugins/bootstrap/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/assets/plugins/datatable/dataTables.bootstrap.min.css}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{static/assets/css/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/assets/css/style-default.css}">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="main-search">
                         <div class="input-wrap">
-                            <input class="form-control" type="text" placeholder="Search Here..." />
+                            <input class="form-control" type="text" placeholder="Search Here...">
                             <a href="page-search.html"><i class="sli-magnifier"></i></a>
                         </div>
                         <span class="close-search search-toggle"><i class="ti-close"></i></span>
@@ -45,7 +45,7 @@
                 </button>
 
                 <a class="navbar-brand" href="index.html">
-                    <img th:src="@{static/assets/images/logo-w.svg}" />
+                    <img th:src="@{static/assets/images/logo-w.svg}">
                     <span>Big Ben</span>
                 </a>
 
@@ -60,9 +60,9 @@
                             <i class="sli-magnifier"></i>
                         </a>
                     </li>
-                    
+
                 </ul>   <!-- END: Responsive Top Right tool bar -->
-                
+
             </div>
             
             <div class="collapse navbar-collapse" id="headerNavbarCollapse">
@@ -134,7 +134,7 @@
                             <li>
                                 <a href="#">
                                     <div class="user-list-wrap">
-                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-02.jpg}" alt="" /></div>
+                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-02.jpg}" alt=""></div>
                                         <div class="detail">
                                             <span class="text-normal">Cynthianawen</span>
                                             <span class="time">2 mins ago</span>
@@ -147,7 +147,7 @@
                             <li>
                                 <a href="#">
                                     <div class="user-list-wrap">
-                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-03.jpg}" alt="" /></div>
+                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-03.jpg}" alt=""></div>
                                         <div class="detail">
                                             <span class="text-normal">Megan Stamper</span>
                                             <span class="time">1 hr ago</span>
@@ -160,7 +160,7 @@
                             <li>
                                 <a href="#">
                                     <div class="user-list-wrap">
-                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-04.jpg}" alt="" /></div>
+                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-04.jpg}" alt=""></div>
                                         <div class="detail">
                                             <span class="text-normal">Alex Pushkin</span>
                                             <span class="time">yesterday</span>
@@ -173,7 +173,7 @@
                             <li>
                                 <a href="#">
                                     <div class="user-list-wrap">
-                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-05.jpg}" alt="" /></div>
+                                        <div class="profile-pic"><img th:src="@{static/demo/users/img-user-05.jpg}" alt=""></div>
                                         <div class="detail">
                                             <span class="text-normal">Bjarne Flur Kvistad</span>
                                             <span class="time">2 days ago</span>
@@ -193,14 +193,14 @@
                     
                     <li class="main-search hidden-xs">
                         <div class="input-wrap">
-                            <input class="form-control" type="text" placeholder="Search Here..." />
+                            <input class="form-control" type="text" placeholder="Search Here...">
                             <a href="page-search.html"><i class="sli-magnifier"></i></a>
                         </div>
                     </li>
                     
                     <li class="user-profile dropdown">
                         <a href="javascript:;" class="clearfix dropdown-toggle" data-toggle="dropdown">
-                            <img th:src="@{static/demo/users/img-user-01.jpg}" alt="" class="hidden-sm" />
+                            <img th:src="@{static/demo/users/img-user-01.jpg}" alt="" class="hidden-sm">
                             <div class="user-name">Maria Fällström <small class="fa fa-angle-down"></small></div>
                         </a>
                         <ul class="dropdown-menu dropdown-animated pop-effect" role="menu">
@@ -218,29 +218,29 @@
             </div><!-- END: Navbar-collapse -->
             
         </header>   <!-- END: Header -->
-        
+        <!--aside是左侧的栏目。也就是左上角那个图片下面的竖着的导航条-->
         <aside class="side-navigation-wrap sidebar-fixed">  <!-- START: Side Navigation -->
             <div class="sidenav-inner">
-                
+
                 <ul class="side-nav magic-nav">
-                    
+
                     <li class="side-nav-header">Navigation</li>
-                    
+
                     <li>
-                        <a href="index"><i class="sli-dashboard"></i> <span class="nav-text">Dashboard</span></a>
+                        <a href="index.html"><i class="sli-dashboard"></i> <span class="nav-text">Dashboard</span></a>
                     </li>
-                    
+
                     <li>
                         <a href="msg-inbox.html">
-                            <i class="sli-envelope"></i> 
+                            <i class="sli-envelope"></i>
                             <span class="nav-text">Messages</span>
                             <span class="badge bg-danger">3</span>
                         </a>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuOne" data-toggle="collapse" aria-expanded="false">
-                            <i class="fs-grid-6"></i> 
+                            <i class="fs-grid-6"></i>
                             <span class="nav-text">Tables</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuOne">
@@ -253,10 +253,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuTwo" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-present"></i> 
+                            <i class="sli-present"></i>
                             <span class="nav-text">UI Elements</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuTwo">
@@ -264,7 +264,7 @@
                                 <li><a href="ui-general.html">General</a></li>
                                 <li><a href="ui-buttons.html">Buttons</a></li>
                                 <li><a href="ui-typography.html">Typography</a></li>
-                                <li><a href="ui-tabs-navs.html">Tabs&Navs</a></li>
+                                <li><a href="ui-tabs-navs.html">Tabs & Navs</a></li>
                                 <li><a href="ui-accordions.html">Accordions</a></li>
                                 <li><a href="ui-tree-view.html">Tree View</a></li>
                                 <li><a href="ui-modals.html">Models</a></li>
@@ -275,10 +275,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuThree" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-layers"></i> 
+                            <i class="sli-layers"></i>
                             <span class="nav-text">Forms</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuThree">
@@ -293,10 +293,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuFour" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-docs"></i> 
+                            <i class="sli-docs"></i>
                             <span class="nav-text">Pages</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuFour">
@@ -311,10 +311,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuFive" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-map"></i> 
+                            <i class="sli-map"></i>
                             <span class="nav-text">Maps</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuFive">
@@ -324,10 +324,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuEleven" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-briefcase"></i> 
+                            <i class="sli-briefcase"></i>
                             <span class="nav-text">Components</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuEleven">
@@ -339,10 +339,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuSix" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-pie-chart"></i> 
+                            <i class="sli-pie-chart"></i>
                             <span class="nav-text">Charts</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuSix">
@@ -353,10 +353,10 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuSeven" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-user"></i> 
+                            <i class="sli-user"></i>
                             <span class="nav-text">User</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuSeven">
@@ -371,20 +371,20 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="side-nav-header">More</li>
-                    
+
                     <li>
                         <a href="widgets.html">
-                            <i class="sli-rocket"></i> 
+                            <i class="sli-rocket"></i>
                             <span class="nav-text">Widgets</span>
                             <span class="badge bg-danger">10</span>
                         </a>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuEight" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-compass"></i> 
+                            <i class="sli-compass"></i>
                             <span class="nav-text">Icons</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuEight">
@@ -397,21 +397,21 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuNine" data-toggle="collapse" aria-expanded="false">
-                            <i class="sli-trophy"></i> 
+                            <i class="sli-trophy"></i>
                             <span class="nav-text">Applications</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuNine">
                             <ul>
                                 <li><a href="app-log-view.html">Log View</a></li>
                                 <li><a href="app-calendar.html">Calendar</a></li>
-                                <li><a href="index.html">Year Calendar</a></li>
+                                <li><a href="app-year-calendar.html">Year Calendar</a></li>
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="has-submenu">
                         <a href="#submenuTen" data-toggle="collapse" aria-expanded="false">
                             <i class="fa fa-sitemap"></i> <span class="nav-text">Menu Levels</span>
@@ -433,9 +433,9 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="side-nav-header">Progress</li>
-                    
+
                     <li>
                         <div class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-cog"></i></a>
@@ -445,7 +445,7 @@
                             </ul>
                         </div>
                     </li>
-                    
+
                     <li class="milestone">
                         <a href="#">
                             UX Design
@@ -455,7 +455,7 @@
                             </div>
                         </a>
                     </li>
-                    
+
                     <li class="milestone">
                         <a href="#">
                             Frontend Development
@@ -465,7 +465,7 @@
                             </div>
                         </a>
                     </li>
-                    
+
                     <li class="milestone">
                         <a href="#">
                             Backend Development
@@ -475,30 +475,79 @@
                             </div>
                         </a>
                     </li>
-                    
+
                 </ul>
-                
+
             </div><!-- END: sidebar-inner -->
-            
+
         </aside>    <!-- END: Side Navigation -->
         
         <div class="main-container">    <!-- START: Main Container -->
-            
+            <!--在右侧显示当前页面的目录位置的div，也就是显示HOME>tabkes>datatabke-->
+            <div class="page-header">
+                <h1>Data Tables <small>Bootstrap Data Table</small></h1>
+                <ol class="breadcrumb">
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="index.php">Tables</a></li>
+                    <li class="active">Data Table</li>
+                </ol>
+            </div>
+            <!--显示本页面中的主要部分，也就是panel table -->
             <div class="content-wrap">  <!--START: Content Wrap-->
-                
+                <!--content-wrap设置了padding-->
                 <div class="row">
                     
                     <div class="col-md-12">
                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Panel title</h3>
+                                <div class="tools">
+                                    <a href="/add_activity"><button type="button" class="btn btn-success">添加实验室活动</button></a>
+                                    <a class="btn-link collapses panel-collapse" href="javascript:;"></a>
+                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>
+                                </div>
+                            </div>
+                            <!--table主体-->
                             <div class="panel-body">
-                                <div id="calendar"></div>
+                                <table class="table table-bordered table-dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>活动名</th>
+                                            <th>活动时间</th>
+                                            <th>修改信息</th>
+                                            <th>删除信息</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>活动名</th>
+                                            <th>活动时间</th>
+                                            <th>修改信息</th>
+                                            <th>删除活动信息</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:each="activity:${activityList}">
+                                            <td th:text="${activity.getActivity_name()}"></td>
+                                            <td th:text="${activity.getActivity_date()}"></td>
+                                            <td>
+                                                <form th:action="@{|/activity/${activity.getActivit_id()}|}" method="get" th:method="get">
+                                                    <button type="submit" class="btn btn-primary">修改信息</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form th:action="@{|/activity/${activity.getActivit_id()}|}" method="delete" th:method="delete">
+                                                    <button type="submit" class="btn btn-danger">删除活动信息</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     
                 </div>
-                    
-                
             </div>  <!--END: Content Wrap-->
             
         </div>  <!-- END: Main Container -->
@@ -508,64 +557,21 @@
         </footer>   <!-- END: Footer -->
         
     </div>  <!-- END: wrapper -->
-    
-    
-    <div class="modal modal-fade" id="event-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">
-                        Event
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" name="event-index">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="min-date" class="col-sm-4 control-label">Name</label>
-                            <div class="col-sm-7">
-                                <input name="event-name" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="min-date" class="col-sm-4 control-label">Location</label>
-                            <div class="col-sm-7">
-                                <input name="event-location" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="min-date" class="col-sm-4 control-label">Dates</label>
-                            <div class="col-sm-7">
-                                <div class="input-group input-daterange" data-provide="datepicker">
-                                    <input name="event-start-date" type="text" class="form-control" value="2012-04-05">
-                                    <span class="input-group-addon">to</span>
-                                    <input name="event-end-date" type="text" class="form-control" value="2012-04-19">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="save-event">
-                        Save
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
 
     <script type="text/javascript" th:src="@{static/assets/plugins/lib/jquery-2.2.4.min.js}"></script>
     <script type="text/javascript" th:src="@{static/assets/plugins/lib/jquery-ui.min.js}"></script>
     <script type="text/javascript" th:src="@{static/assets/plugins/bootstrap/bootstrap.min.js}"></script>
     <script type="text/javascript" th:src="@{static/assets/plugins/lib/plugins.js}"></script>
     
-    <script type="text/javascript" th:src="@{static/assets/plugins/fullcalendar/moment.min.js}"></script>
-    <script type="text/javascript" th:src="@{static/assets/plugins/year-calendar/js/bootstrap-year-calendar.min.js}"></script>
-    
+    <script type="text/javascript" th:src="@{static/assets/plugins/datatable/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{static/assets/plugins/datatable/dataTables.bootstrap.min.js}"></script>
+
     <script type="text/javascript" th:src="@{static/assets/js/app.base.js}"></script>
-    <script type="text/javascript" th:src="@{static/assets/js/page-yearCalendar.js}"></script>
+    <script type="text/javascript" th:src="@{static/assets/js/page-table.js}"></script>
+    <script>
+        jQuery(document).ready(function () {
+            DataTableBasic.init();
+        });
+    </script>
 </body>
 </html>

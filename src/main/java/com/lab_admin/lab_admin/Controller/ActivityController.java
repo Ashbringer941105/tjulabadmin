@@ -12,7 +12,8 @@ import java.util.List;
 /**
  * 处理Activity相关的RESTFUL请求的Controller类
  */
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class ActivityController {
 
     @Autowired
@@ -30,7 +31,7 @@ public class ActivityController {
         List<Activity> activityList = activityRespository.findAll();
         model.addAttribute("activityList",activityList);
 
-        return "";//此处应加入需要转向的页面的HTML文件
+        return "activity_table";//此处应加入需要转向的页面的HTML文件
     }
 
     /**

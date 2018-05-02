@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Controller
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class PaperController {
     @Autowired
     private PaperRespository paperRespository;
@@ -21,9 +21,10 @@ public class PaperController {
      * @return
      */
     @GetMapping(value = "/papers")
-    public  List<Paper> paperList(Model model){
+    public  String paperList(Model model){
         List<Paper> paperList = paperRespository.findAll();
-        return  paperList;
+        model.addAttribute("paperList",paperList);
+        return  "paper_table";
     }
 
     /**
@@ -76,6 +77,6 @@ public class PaperController {
     @DeleteMapping(value = "/paper/{paper_id}")
     public String deletePaper(@PathVariable("paper_id") Integer paper_id){
         paperRespository.delete(paper_id);
-        return "";
+        return "redirect:/papers";
     }
 }

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Controller
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class ProjectController {
     @Autowired
     private ProjectRespository projectRespository;
@@ -25,7 +25,8 @@ public class ProjectController {
     @GetMapping(value = "/projects")
     public String projectList(Model model){
         List<Project> projectList = projectRespository.findAll();
-        return "";
+        model.addAttribute("projectList",projectList);
+        return "project_table";
     }
 
     /**
@@ -77,7 +78,7 @@ public class ProjectController {
     @DeleteMapping(value = "/project/{project_id}")
     public String deleteProject(@PathVariable("project_id") Integer project_id){
         projectRespository.delete(project_id);
-        return "";
+        return "redirect:/projects";
     }
 
 }
