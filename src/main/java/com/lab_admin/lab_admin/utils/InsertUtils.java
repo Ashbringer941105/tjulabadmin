@@ -31,10 +31,6 @@ public class InsertUtils {
     public  String insertObject(Object object,
                                MultipartFile file,
                                String filePath){
-         /*
-        此处定义文件路径
-         */
-//        filePath = "E://test//";
 
         // 获取文件名
         String fileName = file.getOriginalFilename();
@@ -78,8 +74,6 @@ public class InsertUtils {
         /*
         对文件上传的操作
          */
-//        String result = upload(file,filePath);
-//        return result;
         fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
         // 检测是否存在目录
