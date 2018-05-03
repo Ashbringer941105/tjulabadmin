@@ -11,8 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-//@Controller
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class SliderimageController {
     @Autowired
     private SliderimageRespository sliderimageRespository;
@@ -59,9 +59,8 @@ public class SliderimageController {
     @PostMapping(value = "/sliderimage")
     public String addSliderimage(Sliderimage sliderimage,
                                  MultipartFile file){
-//        sliderimageRespository.save(sliderimage);
         String result = sliderimageService.insertSliderimage(sliderimage,file);
-        return "";
+        return "redirect:/sliderimages";
     }
 
     /**
