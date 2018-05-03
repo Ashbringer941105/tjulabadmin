@@ -6,12 +6,15 @@ import com.lab_admin.lab_admin.respository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+@Component
 public class InsertUtils {
 
     @Autowired
@@ -25,10 +28,17 @@ public class InsertUtils {
     @Autowired
     private SliderimageRespository sliderimageRespository;
 
+    public static InsertUtils insertUtils;
     private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
+    @PostConstruct
+    public void init(){
+        insertUtils = this;
+        insertUtils.projectRespository = this.projectRespository;
 
-    public  String insertObject(Object object,
+    }
+
+    public static String insertObject(Object object,
                                MultipartFile file,
                                String filePath){
 
@@ -40,32 +50,34 @@ public class InsertUtils {
         logger.info("上传的后缀名为：" + suffixName);
         //更改图片信息中的存储路径
 
+        fileName = UUID.randomUUID() + suffixName;
+        String cc = object.getClass().getName();
         //根据传入的object的类，执行不同的修改信息以及
-        switch (object.getClass().getName()){
-            case "Activity" :
+        switch (cc){
+            case "com.lab_admin.lab_admin.Bean.Activity" :
                 Activity activity = (Activity)object;
                 activity.setActivity_imagepath(filePath+fileName);
-                activityRespository.save(activity);
+                insertUtils.activityRespository.save(activity);
                 break;
-            case "Member":
+            case "com.lab_admin.lab_admin.Bean.Member":
                 Member member = (Member)object;
                 member.setImagepath(filePath+fileName);
-                memberRespository.save(member);
+                insertUtils.memberRespository.save(member);
                 break;
-            case "Paper":
+            case "com.lab_admin.lab_admin.Bean.Paper":
                 Paper paper = (Paper)object;
                 paper.setPaper_imagepath(filePath+fileName);
-                paperRespository.save(paper);
+                insertUtils.paperRespository.save(paper);
                 break;
-            case "Project":
+            case "com.lab_admin.lab_admin.Bean.Project":
                 Project project = (Project)object;
                 project.setProject_imagepath(filePath+fileName);
-                projectRespository.save(project);
+                insertUtils.projectRespository.save(project);
                 break;
-            case "Sliderimage":
+            case "com.lab_admin.lab_admin.Bean.Sliderimage":
                 Sliderimage sliderimage = (Sliderimage)object;
                 sliderimage.setSliderimage_imagepath(filePath+fileName);
-                sliderimageRespository.save(sliderimage);
+                insertUtils.sliderimageRespository.save(sliderimage);
                 break;
             default:
                 return "输入的object错误";
@@ -74,7 +86,7 @@ public class InsertUtils {
         /*
         对文件上传的操作
          */
-        fileName = UUID.randomUUID() + suffixName;
+
         File dest = new File(filePath + fileName);
         // 检测是否存在目录
         if (!dest.getParentFile().exists()) {
