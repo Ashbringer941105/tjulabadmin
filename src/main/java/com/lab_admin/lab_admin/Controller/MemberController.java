@@ -11,9 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-//@Controller
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class MemberController {
+
     @Autowired
     private MemberRespository memberRespository;
     @Autowired
@@ -62,15 +63,14 @@ public class MemberController {
                             MultipartFile file){
         //此处的result是为了测试的时候检查memberService.insertMember函数中的结果，也便于以后添加各种图片验证使用
         String result = memberService.insertMember(member,file);
-//        return "redirect:/members";
-        return result;
+        return "redirect:/members";
     }
 
     /**
      * 删除成员的方法 将成员删除之后，页面重定向到成员列表界面
      * 测试成功
-     * @param id
-     * @return
+     * @param id 传入的需要删除的成员的id
+     * @return 删除后将页面重定向到member_table中
      */
 //    提交请求的form表格为
 //<form th:action="@{|/member/${member.getId()}|}" method="delete" th:method="delete">

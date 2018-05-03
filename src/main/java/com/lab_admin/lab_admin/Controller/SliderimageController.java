@@ -1,19 +1,23 @@
 package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Sliderimage;
+import com.lab_admin.lab_admin.Service.SliderimageService;
 import com.lab_admin.lab_admin.respository.SliderimageRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@Controller
-//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+//@Controller
+@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class SliderimageController {
     @Autowired
     private SliderimageRespository sliderimageRespository;
+    @Autowired
+    private SliderimageService sliderimageService;
 
     /**
      * 获取所有SliderImage的方法，编写完成
@@ -53,8 +57,10 @@ public class SliderimageController {
      * @return
      */
     @PostMapping(value = "/sliderimage")
-    public String addSliderimage(Sliderimage sliderimage){
-        sliderimageRespository.save(sliderimage);
+    public String addSliderimage(Sliderimage sliderimage,
+                                 MultipartFile file){
+//        sliderimageRespository.save(sliderimage);
+        String result = sliderimageService.insertSliderimage(sliderimage,file);
         return "";
     }
 

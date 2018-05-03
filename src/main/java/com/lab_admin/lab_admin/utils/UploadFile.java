@@ -12,6 +12,12 @@ public class UploadFile {
 
     private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
+    /**
+     * 文件上传的函数
+     * @param file 需要上传的文件
+     * @param filePath 想要将文件上传的位置
+     * @return 返回是否上传成功的信息
+     */
     public static String upload(MultipartFile file,
                           String filePath){
 
@@ -28,8 +34,6 @@ public class UploadFile {
         // 获取文件的后缀名
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         logger.info("上传的后缀名为：" + suffixName);
-        // 文件上传后的路径
-//        String filePath = "E://test//";
         // 解决中文问题，liunx下中文路径，图片显示问题
         // fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
