@@ -1,11 +1,13 @@
 package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Member;
+import com.lab_admin.lab_admin.Service.MemberService;
 import com.lab_admin.lab_admin.respository.MemberRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,6 +16,8 @@ import java.util.List;
 public class MemberController {
     @Autowired
     private MemberRespository memberRespository;
+    @Autowired
+    private MemberService memberService;
 
     /**
      * 获取所有member列表的方法
@@ -32,7 +36,7 @@ public class MemberController {
      * 通过id 获取单个成员信息
      * 测试通过
      * @param model
-     * @param id
+     * @param id 
      * @return
      */
 //    传递参数的方式
@@ -48,18 +52,17 @@ public class MemberController {
     }
 
     /**
-     * 添加成员方法,测试成功
-     * 测试通过
-     * @param member
-     * @return
+     * 添加成员函数，
+     * @param member 传入的成员信息
+     * @param file 传入的成员图片信息
+     * @return 添加成功之后，应该重定向到列表界面
      */
     @PostMapping(value = "/member")
-    public String addMember(Member member){
-        if(member.getHomepage()==""){
-            member.setHomepage("#");
-        }
-        memberRespository.save(member);
-        return "test";
+    public String addMember(Member member,
+                            MultipartFile file){
+        //此处的result是为了测试的时候检查memberService.insertMember函数中的结果，也便于以后添加各种图片验证使用
+        String result = memberService.insertMember(member,file);
+        return "redirect:/members";
     }
 
     /**
