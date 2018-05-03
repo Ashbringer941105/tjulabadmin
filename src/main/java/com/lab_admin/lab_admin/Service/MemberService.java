@@ -2,15 +2,13 @@ package com.lab_admin.lab_admin.Service;
 
 import com.lab_admin.lab_admin.Bean.Member;
 import com.lab_admin.lab_admin.respository.MemberRespository;
-import com.lab_admin.lab_admin.utils.UploadFile;
+import com.lab_admin.lab_admin.utils.InsertUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.*;
 
 /**
  * 对于Controller中的一些复杂逻辑应该都写在Service中
@@ -46,11 +44,14 @@ public class MemberService {
         //然后根据存储的路径，将路径信息存入数据库中
         member.setImagepath(filePath+fileName);
         memberRespository.save(member);
+
         /*
         对文件上传的操作
          */
-        String result = UploadFile.upload(file,filePath);
+        InsertUtils insertUtils = new InsertUtils();
+        String result =insertUtils.insertObject(member,file,filePath);
         return result;
+
     }
 
 }
