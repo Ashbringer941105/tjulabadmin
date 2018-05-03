@@ -11,8 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@Controller
-//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+//@Controller
+@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class MemberController {
     @Autowired
     private MemberRespository memberRespository;
@@ -36,7 +36,7 @@ public class MemberController {
      * 通过id 获取单个成员信息
      * 测试通过
      * @param model
-     * @param id 
+     * @param id
      * @return
      */
 //    传递参数的方式
@@ -62,7 +62,8 @@ public class MemberController {
                             MultipartFile file){
         //此处的result是为了测试的时候检查memberService.insertMember函数中的结果，也便于以后添加各种图片验证使用
         String result = memberService.insertMember(member,file);
-        return "redirect:/members";
+//        return "redirect:/members";
+        return result;
     }
 
     /**

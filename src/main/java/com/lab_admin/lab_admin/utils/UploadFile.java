@@ -12,7 +12,7 @@ public class UploadFile {
 
     private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
-    public  String upload(MultipartFile file,
+    public static String upload(MultipartFile file,
                           String filePath){
 
         //首先判断文件是否为空
