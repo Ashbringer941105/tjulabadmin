@@ -2,11 +2,13 @@ package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Paper;
 import com.lab_admin.lab_admin.Bean.Project;
+import com.lab_admin.lab_admin.Service.ProjectService;
 import com.lab_admin.lab_admin.respository.ProjectRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -15,6 +17,9 @@ import java.util.List;
 public class ProjectController {
     @Autowired
     private ProjectRespository projectRespository;
+    @Autowired
+    private ProjectService projectService;
+
 
     /**
      * 获得所有的Project的方法
@@ -32,6 +37,7 @@ public class ProjectController {
     /**
      * 通过id获取项目信息
      * 测试通过
+     * TODO 关联显示单个paper信息的界面
      * @param project_id
      * @return
      */
@@ -48,15 +54,16 @@ public class ProjectController {
      * @return
      */
     @PostMapping(value = "/project")
-    public String addProject(Project project){
-        projectRespository.save(project);
-        return "";
+    public String addProject(Project project,
+                             MultipartFile file){
+        String result = projectService.insertProject(project,file);
+        return "redirect:/projects";
     }
 
     /**
      * 更新一个Project信息的方法
      * 测试成功
-     *
+     *TODO 需要完善更新信息的界面和更新的服务
      * @param project_id
      * @param project
      * @return

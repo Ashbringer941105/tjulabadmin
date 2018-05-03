@@ -1,7 +1,7 @@
 package com.lab_admin.lab_admin.Service;
 
-import com.lab_admin.lab_admin.Bean.Sliderimage;
-import com.lab_admin.lab_admin.respository.SliderimageRespository;
+import com.lab_admin.lab_admin.Bean.Paper;
+import com.lab_admin.lab_admin.respository.PaperRespository;
 import com.lab_admin.lab_admin.utils.UploadFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,15 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class SliderimageService {
-
+public class PaperService {
     @Autowired
-    private SliderimageRespository sliderimageRespository;
+    private PaperRespository paperRespository;
 
-    private static final Logger logger = LoggerFactory.getLogger(SliderimageService.class);
+    private static final Logger logger = LoggerFactory.getLogger(PaperService.class);
 
-    public String insertSliderimage(Sliderimage sliderimage,
-                                    MultipartFile file){
+    public String insertPaper(Paper paper,
+                              MultipartFile file){
 
         /*
         此处定义文件路径
@@ -32,8 +31,8 @@ public class SliderimageService {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         logger.info("上传的后缀名为：" + suffixName);
         //更改图片信息中的存储路径
-        sliderimage.setSliderimage_imagepath(filePath+fileName);
-        sliderimageRespository.save(sliderimage);
+        paper.setPaper_imagepath(filePath+fileName);
+        paperRespository.save(paper);
 
         /*
         对文件上传的操作

@@ -1,11 +1,13 @@
 package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Paper;
+import com.lab_admin.lab_admin.Service.PaperService;
 import com.lab_admin.lab_admin.respository.PaperRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,6 +16,9 @@ import java.util.List;
 public class PaperController {
     @Autowired
     private PaperRespository paperRespository;
+    @Autowired
+    private PaperService paperService;
+
 
     /**
      * 获得所有的paper的list的方法，
@@ -29,6 +34,7 @@ public class PaperController {
 
     /**
      * 查询一个paper的方法
+     * TODO 关联显示单个paper信息的界面
      * 测试通过
      * @param paper_id
      * @param model
@@ -49,13 +55,16 @@ public class PaperController {
      * @return
      */
     @PostMapping(value = "/paper")
-    public Paper addPaper(Paper paper){
-        return paperRespository.save(paper);
+    public String  addPaper(Paper paper,
+                          MultipartFile file){
+        String result = paperService.insertPaper(paper,file);
+        return "redirect:/papers";
     }
 
     /**
-     * 根据id更新paper信息的函数
+     * 根据id 更新paper信息的函数
      * 测试成功
+     * TODO 需要完善更新信息的界面和更新的服务
      * @param paper_id
      * @param paper
      * @return

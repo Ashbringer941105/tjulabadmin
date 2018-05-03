@@ -33,7 +33,7 @@ public class SliderimageController {
     }
 
     /**
-     * 根据id 获取单个sliderimage,编写完成，只差页面
+     * 根据id 获取单个sliderimage,编写完成，TODO 关联显示单个paper信息的界面
      * 测试成功
      * @param sliderimage_id
      * @return
@@ -66,6 +66,7 @@ public class SliderimageController {
     /**
      * 根据id更新一个轮播图片的信息
      * 测试成功
+     * TODO 需要完善更新信息的界面和更新的服务
      * @param sliderimage_id
      * @param sliderimage
      * @return

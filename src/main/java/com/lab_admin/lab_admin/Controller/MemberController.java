@@ -36,6 +36,7 @@ public class MemberController {
     /**
      * 通过id 获取单个成员信息
      * 测试通过
+     * TODO 关联显示单个paper信息的界面
      * @param model
      * @param id
      * @return
@@ -84,6 +85,7 @@ public class MemberController {
 
     /**
      * 更新成员信息的方法，测试成功
+     * TODO 需要完善更新信息的界面和更新的服务
      * @param id
      * @param member
      * @return
