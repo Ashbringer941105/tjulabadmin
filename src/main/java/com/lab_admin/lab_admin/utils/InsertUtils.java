@@ -14,6 +14,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+/*
+此处有几处注意的
+1、使用 @Autowired注入Respository需要经过一下四步
+1）public static InsertUtils insertUtils;  2）对这个类加上@Component注解  3）加入public void init()函数  4）将需要调用的函数设为static
+ */
+
 @Component
 public class InsertUtils {
 
@@ -35,7 +41,10 @@ public class InsertUtils {
     public void init(){
         insertUtils = this;
         insertUtils.projectRespository = this.projectRespository;
-
+        insertUtils.activityRespository = this .activityRespository;
+        insertUtils.memberRespository = this .memberRespository;
+        insertUtils.paperRespository = this.paperRespository;
+        insertUtils.sliderimageRespository = this.sliderimageRespository;
     }
 
     public static String insertObject(Object object,
