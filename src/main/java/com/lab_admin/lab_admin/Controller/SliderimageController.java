@@ -55,7 +55,7 @@ public class SliderimageController {
     @PostMapping(value = "/sliderimage")
     public String addSliderimage(Sliderimage sliderimage){
         sliderimageRespository.save(sliderimage);
-        return "";
+        return "redirect:/sliderimages";
     }
 
     /**

@@ -59,7 +59,7 @@ public class MemberController {
             member.setHomepage("#");
         }
         memberRespository.save(member);
-        return "test";
+        return "redirect:/members";
     }
 
     /**

@@ -28,6 +28,11 @@ public class AdminController {
         return "add_member";
     }
 
+    @RequestMapping("/add_sliderimage")
+    public String add_sliderimage(){
+        return "add_sliderimage";
+    }
+
 //
 //    @RequestMapping("/member_table")
 //    public String member_table(Model model){
