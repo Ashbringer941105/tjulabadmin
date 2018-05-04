@@ -50,7 +50,7 @@ public class ActivityController {
                               @PathVariable("id") Integer activity_id){
         Activity activity = activityRespository.findOne(activity_id);
         model.addAttribute("activity",activity);
-        return "";
+        return "show_activity";
     }
 
 

@@ -16,9 +16,15 @@ import java.util.UUID;
 
 /*
 此处有几处注意的
-1、使用 @Autowired注入Respository需要经过一下四步
-1）public static InsertUtils insertUtils;  2）对这个类加上@Component注解  3）加入public void init()函数  4）将需要调用的函数设为static
+1、使用 @Autowired注入Respository需要经过一下四步（）
+    1）public static InsertUtils insertUtils;
+    2）对这个类加上@Component注解
+    3）加入public void init()函数
+    4）将需要调用的函数设为static
+2、可以通过object.getClass().getName()获得类的名字，
+ 但是需要注意，获得的类的名字是带有包名的，也就是com.lab_admin.lab_admin.Bean.Activity
  */
+
 
 @Component
 public class InsertUtils {
