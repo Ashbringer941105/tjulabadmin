@@ -507,15 +507,15 @@
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal" th:action="@{|/member|}" method="post" th:method="post">
+                            <form class="form-horizontal" th:action="@{|/member|}" method="post" th:method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="name" class="col-sm-1 control-label" >姓名</label>
+                                    <label for="name" class="col-sm-2 control-label" >姓名</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class="col-sm-1 control-label" for="rolename" >角色职称</label>
+                                        <label class="col-sm-2 control-label" for="rolename" >角色职称</label>
                                         <div class="col-sm-2">
                                             <select name="rolename" class="form-control custom-Select" id="rolename">
                                                 <option value="在校研究生">在校研究生</option>
@@ -525,7 +525,7 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-1 control-label" for="gender" >性别</label>
+                                    <label class="col-sm-2 control-label" for="gender" >性别</label>
                                     <div class="col-sm-2">
                                         <select name="gender" class="form-control custom-Select" id="gender">
                                             <option value="男">男</option>
@@ -534,17 +534,34 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="homepage" class="col-sm-1 control-label">主页链接</label>
+                                    <label for="homepage" class="col-sm-2 control-label">主页链接</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="homepage" placeholder="homepage" name="homepage">
+                                        <input type="text" class="form-control" id="homepage" placeholder="homepage" name="homepage">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="inputPassword4" class="col-sm-1 control-label">Confirm Password</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm Password">
-                                    </div>
-                                </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">个人照片</h3>
+                                        </div>
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;">
+
+                                            </div>
+                                            <div>
+                                                    <span class="btn btn-default btn-file">
+                                                        <span class="fileinput-new">选择图片</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="hidden" value="" name="">
+                                                        <input type="file" name="file">
+                                                    </span>
+                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                            </div>
+                                        </div>
+
+                                    </div>  <!-- END: Panel Body -->
+                                </div>  <!-- END: Panel -->
 
                                 <!--<div class="form-group">-->
                                     <!--<div class="col-sm-offset-4 col-sm-8">-->

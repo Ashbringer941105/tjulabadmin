@@ -14,9 +14,19 @@ public class Project {
     private String project_introduction;
     private String project_link;
     private String project_date;
+    private String project_leader;
 
     public Project() {
     }
+
+    public String getProject_leader() {
+        return project_leader;
+    }
+
+    public void setProject_leader(String project_leader) {
+        this.project_leader = project_leader;
+    }
+
 
     public Integer getProject_id() {
         return project_id;

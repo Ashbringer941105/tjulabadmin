@@ -503,48 +503,72 @@
                 <div class="col-md-10"  align="center">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">人员信息</h3>
+                            <h3 class="panel-title">论文展示信息</h3>
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal" th:action="@{|/member|}" method="post" th:method="post">
+                            <form class="form-horizontal" th:action="@{|/paper|}" method="post" th:method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="name" class="col-sm-1 control-label" >姓名</label>
+                                    <label  class="col-sm-2 control-label" >论文名称</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
+                                        <input type="text" class="form-control" id="paper_name" name="paper_name" placeholder="论文名称">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-sm-1 control-label" for="rolename" >角色职称</label>
-                                    <div class="col-sm-2">
-                                        <select name="rolename" class="form-control custom-Select" id="rolename">
-                                            <option value="在校研究生">在校研究生</option>
-                                            <option value="教师">教师</option>
-                                            <option value="毕业生">毕业生</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-1 control-label" for="gender" >性别</label>
-                                    <div class="col-sm-2">
-                                        <select name="gender" class="form-control custom-Select" id="gender">
-                                            <option value="男">男</option>
-                                            <option value="女">女</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="homepage" class="col-sm-1 control-label">主页链接</label>
+                                    <label  class="col-sm-2 control-label" >论文作者名称</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="homepage" placeholder="homepage" name="homepage">
+                                        <input type="text" class="form-control" id="paper_author" name="paper_author" placeholder="论文作者名称">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="inputPassword4" class="col-sm-1 control-label">Confirm Password</label>
+                                    <label  class="col-sm-2 control-label" >论文下载链接</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm Password">
+                                        <input type="text" class="form-control" id="paper_link" name="paper_link" placeholder="论文下载链接">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label" >论文内容</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="paper_introduction" name="paper_introduction" placeholder="论文内容">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">发表日期</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control date-picker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd " name="paper_date">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">File input</h3>
+                                        </div>
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;">
+
+                                            </div>
+                                            <div>
+                                                    <span class="btn btn-default btn-file">
+                                                        <span class="fileinput-new">Select image</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="hidden" value="" name="">
+                                                        <input type="file" name="file">
+                                                    </span>
+                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                            </div>
+                                        </div>
+
+                                    </div>  <!-- END: Panel Body -->
+                                </div>  <!-- END: Panel -->
+
+
+
                                 <!--<div class="form-group">-->
                                 <!--<div class="col-sm-offset-4 col-sm-8">-->
                                 <!--<div class="checkbox checkbox-primary">-->
@@ -555,7 +579,7 @@
                                 <!--</div>-->
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-8">
-                                        <button type="submit" class="btn btn-default">添加人员</button>
+                                        <button type="submit" class="btn btn-default">提交论文信息</button>
                                     </div>
                                 </div>
                             </form>
