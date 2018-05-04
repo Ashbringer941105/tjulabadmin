@@ -26,6 +26,9 @@ public class AdminController {
         return "add_member";
     }
 
+    @RequestMapping("add_slideimage")
+    public String add_sliderimage(Model mode){return  "add_slideimage";}
 
-    
+
+
 }
