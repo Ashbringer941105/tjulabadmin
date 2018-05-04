@@ -1,22 +1,27 @@
 package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Activity;
+import com.lab_admin.lab_admin.Service.AcivityService;
 import com.lab_admin.lab_admin.respository.ActivityRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 /**
  * 处理Activity相关的RESTFUL请求的Controller类
  */
-@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
+@Controller
+//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class ActivityController {
 
     @Autowired
     private ActivityRespository activityRespository;
+    @Autowired
+    private AcivityService acivityService;
 
     /**
      * 响应连接为/activities的GET请求的函数
@@ -29,13 +34,12 @@ public class ActivityController {
     public String   activitiesList(Model model){
         List<Activity> activityList = activityRespository.findAll();
         model.addAttribute("activityList",activityList);
-
-        return "";//此处应加入需要转向的页面的HTML文件
+        return "activity_table";//此处应加入需要转向的页面的HTML文件
     }
 
     /**
-     * 通过id查询一个实验室活动，并将其添加到Attribute中，然后转向activity编辑界面
-     *
+     * 通过id 查询一个实验室活动，并将其添加到Attribute中，然后转向activity编辑界面
+     * TODO 关联显示单个paper信息的界面
      * 测试通过
      * @param model
      * @param activity_id
@@ -58,10 +62,10 @@ public class ActivityController {
      * @return
      */
     @PostMapping(value = "/activity")
-    public String  addActivity(Activity activity){
-        activityRespository.save(activity);
+    public String  addActivity(Activity activity,
+                               MultipartFile file){
+        String result = acivityService.insertActiviy(activity,file);
         return "redirect:/activities";
-//        return activityRespository.save(activity);
     }
 
     /**
@@ -81,7 +85,7 @@ public class ActivityController {
     /**
      * 通过id更新一个activity的数据，
      * 需要注意的是前端的界面中，传输数据的key必须和Activity类中声明的变量名一致，不然会传入空值
-     *
+     *TODO 需要完善更新信息的界面和更新的服务
      * 测试通过
      * @param activity_id
      * @param activity

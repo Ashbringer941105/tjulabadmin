@@ -1,11 +1,13 @@
 package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Sliderimage;
+import com.lab_admin.lab_admin.Service.SliderimageService;
 import com.lab_admin.lab_admin.respository.SliderimageRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,6 +16,8 @@ import java.util.List;
 public class SliderimageController {
     @Autowired
     private SliderimageRespository sliderimageRespository;
+    @Autowired
+    private SliderimageService sliderimageService;
 
     /**
      * 获取所有SliderImage的方法，编写完成
@@ -29,7 +33,7 @@ public class SliderimageController {
     }
 
     /**
-     * 根据id 获取单个sliderimage,编写完成，只差页面
+     * 根据id 获取单个sliderimage,编写完成，TODO 关联显示单个paper信息的界面
      * 测试成功
      * @param sliderimage_id
      * @return
@@ -53,14 +57,16 @@ public class SliderimageController {
      * @return
      */
     @PostMapping(value = "/sliderimage")
-    public String addSliderimage(Sliderimage sliderimage){
-        sliderimageRespository.save(sliderimage);
-        return "";
+    public String addSliderimage(Sliderimage sliderimage,
+                                 MultipartFile file){
+        String result = sliderimageService.insertSliderimage(sliderimage,file);
+        return "redirect:/sliderimages";
     }
 
     /**
      * 根据id更新一个轮播图片的信息
      * 测试成功
+     * TODO 需要完善更新信息的界面和更新的服务
      * @param sliderimage_id
      * @param sliderimage
      * @return

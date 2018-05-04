@@ -1,19 +1,24 @@
 package com.lab_admin.lab_admin.Controller;
 
 import com.lab_admin.lab_admin.Bean.Member;
+import com.lab_admin.lab_admin.Service.MemberService;
 import com.lab_admin.lab_admin.respository.MemberRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 @Controller
 //@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class MemberController {
+
     @Autowired
     private MemberRespository memberRespository;
+    @Autowired
+    private MemberService memberService;
 
     /**
      * 获取所有member列表的方法
@@ -31,6 +36,7 @@ public class MemberController {
     /**
      * 通过id 获取单个成员信息
      * 测试通过
+     * TODO 关联显示单个paper信息的界面
      * @param model
      * @param id
      * @return
@@ -48,25 +54,24 @@ public class MemberController {
     }
 
     /**
-     * 添加成员方法,测试成功
-     * 测试通过
-     * @param member
-     * @return
+     * 添加成员函数，
+     * @param member 传入的成员信息
+     * @param file 传入的成员图片信息
+     * @return 添加成功之后，应该重定向到列表界面
      */
     @PostMapping(value = "/member")
-    public String addMember(Member member){
-        if(member.getHomepage()==""){
-            member.setHomepage("#");
-        }
-        memberRespository.save(member);
-        return "test";
+    public String addMember(Member member,
+                            MultipartFile file){
+        //此处的result是为了测试的时候检查memberService.insertMember函数中的结果，也便于以后添加各种图片验证使用
+        String result = memberService.insertMember(member,file);
+        return "redirect:/members";
     }
 
     /**
      * 删除成员的方法 将成员删除之后，页面重定向到成员列表界面
      * 测试成功
-     * @param id
-     * @return
+     * @param id 传入的需要删除的成员的id
+     * @return 删除后将页面重定向到member_table中
      */
 //    提交请求的form表格为
 //<form th:action="@{|/member/${member.getId()}|}" method="delete" th:method="delete">
@@ -80,6 +85,7 @@ public class MemberController {
 
     /**
      * 更新成员信息的方法，测试成功
+     * TODO 需要完善更新信息的界面和更新的服务
      * @param id
      * @param member
      * @return
