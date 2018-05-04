@@ -26,8 +26,11 @@ public class AdminController {
         return "add_member";
     }
 
-    @RequestMapping("add_slideimage")
-    public String add_sliderimage(Model mode){return  "add_slideimage";}
+    @RequestMapping("/add_sliderimage")
+    public String add_sliderimage(Model model){return  "add_sliderimage";}
+
+    @RequestMapping("/add_activity")
+    public String add_activity(Model model){return  "add_activity";}
 
 
 

@@ -60,6 +60,7 @@ public class SliderimageController {
     public String addSliderimage(Sliderimage sliderimage,
                                  MultipartFile file){
         String result = sliderimageService.insertSliderimage(sliderimage,file);
+        int a= 10;
         return "redirect:/sliderimages";
     }
 
