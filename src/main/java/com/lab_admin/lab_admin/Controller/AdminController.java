@@ -32,6 +32,12 @@ public class AdminController {
     @RequestMapping("/add_activity")
     public String add_activity(Model model){return  "add_activity";}
 
+    @RequestMapping("/add_paper")
+    public String add_paper(Model model){return "add_paper";}
+
+    @RequestMapping("/add_project")
+    public String add_project(Model model){return "add_project";}
+
 
 
 }
