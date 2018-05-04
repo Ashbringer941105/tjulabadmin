@@ -26,12 +26,7 @@ public class MemberService {
     public String  insertMember(Member member,
                                 MultipartFile file){
 
-        // 获取文件名
-        String fileName = file.getOriginalFilename();
-        logger.info("上传的文件名为：" + fileName);
-        // 获取文件的后缀名
-        String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        logger.info("上传的后缀名为：" + suffixName);
+
         // 文件上传后的路径
         String filePath = "E://test//";
         /*
@@ -41,10 +36,6 @@ public class MemberService {
         if(member.getHomepage().equals("")){
             member.setHomepage("#");
         }
-        //然后根据存储的路径，将路径信息存入数据库中
-        member.setImagepath(filePath+fileName);
-        memberRespository.save(member);
-
         /*
         对文件上传的操作
          */

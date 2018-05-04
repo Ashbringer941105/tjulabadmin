@@ -21,7 +21,7 @@ public class AcivityService {
         /*
         此处定义文件路径
          */
-        String filePath = "E://test//";
+        String filePath = "E:/test/";
 
 //        // 获取文件名
 //        String fileName = file.getOriginalFilename();

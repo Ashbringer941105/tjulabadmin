@@ -531,7 +531,11 @@
                                             <td th:text="${activity.getActivity_name()}"></td>
                                             <td th:text="${activity.getActivity_date()}"></td>
                                             <td>
-                                                <form th:action="@{|/activity/${activity.getActivit_id()}|}" method="get" th:method="get">
+                                                <!--<form th:action="@{|/activity/${activity.getActivit_id()}|}" method="get" th:method="get">-->
+                                                    <!--<button type="submit" class="btn btn-primary">修改信息</button>-->
+                                                <!--</form>-->
+                                                <form th:action="@{|/activity|}" method="get" th:method="get">
+                                                    <input type="hidden" th:value="${activity.getActivit_id()}" name="id" id="id">
                                                     <button type="submit" class="btn btn-primary">修改信息</button>
                                                 </form>
                                             </td>

@@ -509,16 +509,16 @@
 
                             <form class="form-horizontal" th:action="@{|/activity|}" method="post" th:method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="name" class="col-sm-2 control-label" >活动名称</label>
+                                    <label for="activity_name" class="col-sm-2 control-label" >活动名称</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="activity_name" name="activity_name" placeholder="活动名称">
+                                        <input type="text" class="form-control" id="activity_name" name="activity_name" placeholder="活动名称" th:value="${activity.getActivity_name()}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="activity_introduction" class="col-sm-2 control-label" >活动内容</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="activity_introduction" name="activity_introduction" placeholder="活动内容">
+                                        <input type="text" class="form-control" id="activity_introduction" name="activity_introduction" placeholder="活动内容" th:value="${activity.getActivity_introduction()}">
                                     </div>
                                 </div>
 
@@ -526,7 +526,7 @@
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">活动日期</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control date-picker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd " name="activity_date">
+                                        <input type="text" class="form-control date-picker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd " name="activity_date" th:value="${activity.getActivity_date()}">
                                     </div>
                                 </div>
 
@@ -536,7 +536,7 @@
                                             <h3 class="panel-title">选择文件</h3>
                                         </div>
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;"><img th:src="@{static/Hart1.png}"></div>
                                             <div>
                                                 <span class="btn btn-default btn-file"><span class="fileinput-new">选择图片</span><span class="fileinput-exists">更改</span><input type="hidden" value="" name=""><input type="file" name="file"></span>
                                                 <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">删除</a>
@@ -545,7 +545,6 @@
 
                                     </div>  <!-- END: Panel Body -->
                                 </div>  <!-- END: Panel -->
-
 
 
                                 <!--<div class="form-group">-->
@@ -1233,15 +1232,15 @@
 
 </div>  <!-- END: wrapper -->
 
-<script type="text/javascript" th:src="@{static/assets/plugins/lib/jquery-2.2.4.min.js}"></script>
-<script type="text/javascript" th:src="@{static/assets/plugins/lib/jquery-ui.min.js}"></script>
-<script type="text/javascript" th:src="@{static/assets/plugins/bootstrap/bootstrap.min.js}"></script>
-<script type="text/javascript" th:src="@{static/assets/plugins/lib/plugins.js}"></script>
+<script type="text/javascript" th:src="@{../static/assets/plugins/lib/jquery-2.2.4.min.js}"></script>
+<script type="text/javascript" th:src="@{../static/assets/plugins/lib/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{../static/assets/plugins/bootstrap/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{../static/assets/plugins/lib/plugins.js}"></script>
 
-<script type="text/javascript" th:src="@{static/assets/plugins/date-picker/js/bootstrap-datepicker.min.js}"></script>
-<script type="text/javascript" th:src="@{static/assets/plugins/dateTime-picker/js/bootstrap-datetimepicker.min.js}"></script>
-<script type="text/javascript" th:src="@{static/assets/plugins/customselect/jquery.customselect.js}"></script>
-<script type="text/javascript" th:src="@{static/assets/plugins/select2/js/select2.min.js}"></script>
+<script type="text/javascript" th:src="@{../../static/assets/plugins/date-picker/js/bootstrap-datepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{../../static/assets/plugins/dateTime-picker/js/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{../../static/assets/plugins/customselect/jquery.customselect.js}"></script>
+<script type="text/javascript" th:src="@{../../static/assets/plugins/select2/js/select2.min.js}"></script>
 <script type="text/javascript" th:src="@{static/assets/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{static/assets/plugins/lib/characterCounter.min.js}"></script>
 <script type="text/javascript" th:src="@{static/assets/plugins/emojionearea/emojionearea.min.js}"></script>
