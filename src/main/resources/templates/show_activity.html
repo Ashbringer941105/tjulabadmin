@@ -507,7 +507,7 @@
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal" th:action="@{|/activity|}" method="post" th:method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" th:action="@{|/activity/update/${activity.getActivit_id()}|}" method="put" th:method="put" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="activity_name" class="col-sm-2 control-label" >活动名称</label>
                                     <div class="col-sm-9">
@@ -536,7 +536,7 @@
                                             <h3 class="panel-title">选择文件</h3>
                                         </div>
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;"><img th:src="@{static/Hart1.png}"></div>
+                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;"><img th:src="${activity.getActivity_imagepath()}"></div>
                                             <div>
                                                 <span class="btn btn-default btn-file"><span class="fileinput-new">选择图片</span><span class="fileinput-exists">更改</span><input type="hidden" value="" name=""><input type="file" name="file"></span>
                                                 <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">删除</a>

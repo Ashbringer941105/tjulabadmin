@@ -93,9 +93,11 @@ public class ActivityController {
      */
     @PutMapping(value = "/activity/update/{id}")
     public String updateActivity(@PathVariable("id") Integer activity_id,
-                                    Activity activity){
+                                    Activity activity,MultipartFile file){
+
         activity.setActivit_id(activity_id);
-        activityRespository.save(activity);
-        return  "";
+        String result = acivityService.insertActiviy(activity,file);
+        //activityRespository.save(activity);
+        return  "redirect:/activities";
     }
 }
