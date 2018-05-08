@@ -65,7 +65,6 @@ public class PaperController {
     /**
      * 根据id 更新paper信息的函数
      * 测试成功
-     * TODO 需要完善更新信息的界面和更新的服务
      * @param paper_id
      * @param paper
      * @return
@@ -73,11 +72,8 @@ public class PaperController {
     @PutMapping(value = "/paper/update/{paper_id}")
     public String updatePaper(@PathVariable("paper_id") Integer paper_id,
                               Paper paper,MultipartFile file){
-
-
            paper.setPaper_id(paper_id);
            String result = paperService.insertPaper(paper,file);
-
         return "redirect:/papers";
     }
 

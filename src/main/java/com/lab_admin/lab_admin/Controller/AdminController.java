@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 //@RequestMapping("/")
 public class AdminController {
-
-    @Autowired
-    private MemberRespository memberRespository;
+    
 
     @RequestMapping("/index")
     public String index(Model model){
