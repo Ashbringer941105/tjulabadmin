@@ -532,7 +532,7 @@
                                             <td th:text="${project.getProject_date()}"></td>
                                             <td>
                                                 <form th:action="@{|/project|}" method="get" th:method="get">
-                                                    <input type="hidden" th:value="${project.getProject_id()}" name="id" id="id">
+                                                    <input type="hidden" th:value="${project.getProject_id()}" name="project_id" id="project_id">
                                                     <button type="submit" class="btn btn-primary">修改项目信息</button>
                                                 </form>
                                             </td>
