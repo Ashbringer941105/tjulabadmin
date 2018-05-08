@@ -507,11 +507,11 @@
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal" th:action="@{|/sliderimage/update/${sliderimage.setSliderimage_id()}|}" method="put" th:method="put" enctype="multipart/form-data">
+                            <form class="form-horizontal" th:action="@{|/sliderimage/update/${sliderimage.getSliderimage_id()}|}" method="put" th:method="put" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="sliderimage_info" class="col-sm-2 control-label" >图片信息</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="sliderimage_info" name="sliderimage_info" placeholder="图片信息" th:value="${sliderimage.sliderimage_info()}">
+                                        <input type="text" class="form-control" id="sliderimage_info" name="sliderimage_info" placeholder="图片信息" th:value="${sliderimage.getSliderimage_info()}">
                                     </div>
                                 </div>
 
