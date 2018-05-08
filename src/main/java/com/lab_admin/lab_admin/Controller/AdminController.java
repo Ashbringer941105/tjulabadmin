@@ -49,6 +49,7 @@ public class AdminController {
             session.setAttribute("userId",username);
             return "redirect:/index";
         } else {
+            //TODO如果验证失败则向session或者model中加入相应的错误消息，帮助用户更好的解决错误。
             return "redirect:/login";
         }
     }

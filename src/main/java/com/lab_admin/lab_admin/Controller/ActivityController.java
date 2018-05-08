@@ -15,7 +15,6 @@ import java.util.List;
  * 处理Activity相关的RESTFUL请求的Controller类
  */
 @Controller
-//@RestController//此处用RestController测试用，实际到跳转界面的时候需要改为Controlller
 public class ActivityController {
 
     @Autowired

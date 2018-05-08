@@ -42,7 +42,7 @@ public class InsertUtils {
     private SliderimageRespository sliderimageRespository;
 
     public static InsertUtils insertUtils;
-    private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
+    private static final Logger logger = LoggerFactory.getLogger(InsertUtils.class);
 
     @PostConstruct
     public void init(){
