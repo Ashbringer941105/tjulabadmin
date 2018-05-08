@@ -33,7 +33,7 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter implements Appli
     public void addInterceptors(InterceptorRegistry registry) {
         //System.out.println("111");
         //拦截规则：除了"/index","/activities"之外都拦截，然后根基interceptor
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/index","/activities");
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/login","/loginVerify","/index");
         super.addInterceptors(registry);
     }
 

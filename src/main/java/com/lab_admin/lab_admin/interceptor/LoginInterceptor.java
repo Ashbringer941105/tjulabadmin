@@ -24,7 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (session.getAttribute("userId") == null) {
             log.info("------:跳转到index页面！");
             System.out.println(request.getContextPath() + "/login");
-            response.sendRedirect("/index");
+            response.sendRedirect("/login");
             return false;
         } else {
             return true;
