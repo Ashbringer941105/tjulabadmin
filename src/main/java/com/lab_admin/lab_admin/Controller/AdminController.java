@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 //@RequestMapping("/")
 public class AdminController {
-    
+
 
     @RequestMapping("/index")
     public String index(Model model){
