@@ -531,13 +531,14 @@
                                             <td th:text="${project.getProject_name()}"></td>
                                             <td th:text="${project.getProject_date()}"></td>
                                             <td>
-                                                <form th:action="@{|/project/${project.getProject_id()}|}" method="get" th:method="get">
-                                                    <button type="submit" class="btn btn-primary">修改论文信息</button>
+                                                <form th:action="@{|/project|}" method="get" th:method="get">
+                                                    <input type="hidden" th:value="${project.getProject_id()}" name="id" id="id">
+                                                    <button type="submit" class="btn btn-primary">修改项目信息</button>
                                                 </form>
                                             </td>
                                             <td>
                                                 <form th:action="@{|/project/${project.getProject_id()}|}" method="delete" th:method="delete">
-                                                    <button type="submit" class="btn btn-danger">删除论文信息</button>
+                                                    <button type="submit" class="btn btn-danger">删除项目信息</button>
                                                 </form>
                                             </td>
                                         </tr>

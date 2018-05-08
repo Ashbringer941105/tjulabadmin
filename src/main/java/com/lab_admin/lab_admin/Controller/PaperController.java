@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @Controller
@@ -40,12 +41,12 @@ public class PaperController {
      * @param model
      * @return
      */
-    @GetMapping(value = "/paper/{paper_id}")
-    public String getPaper(@PathVariable("paper_id") Integer paper_id,
+    @GetMapping(value = "/paper")
+    public String getPaper(@RequestParam("paper_id") Integer paper_id,
                           Model model){
         Paper paper = paperRespository.findOne(paper_id);
         model.addAttribute("paper",paper);
-        return "";
+        return "show_paper";
     }
 
     /**
@@ -71,10 +72,13 @@ public class PaperController {
      */
     @PutMapping(value = "/paper/update/{paper_id}")
     public String updatePaper(@PathVariable("paper_id") Integer paper_id,
-                              Paper paper){
-        paper.setPaper_id(paper_id);
-        paperRespository.save(paper);
-        return "";
+                              Paper paper,MultipartFile file){
+
+
+           paper.setPaper_id(paper_id);
+           String result = paperService.insertPaper(paper,file);
+
+        return "redirect:/papers";
     }
 
     /**

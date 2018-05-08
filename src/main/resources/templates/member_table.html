@@ -549,7 +549,8 @@
                                             <td>年龄</td>
                                             <td><a th:href="${member.getHomepage()}" th:text="${member.getHomepage()}"></a></td>
                                             <td>
-                                                <form th:action="@{|/member/${member.getId()}|}" method="get" th:method="get">
+                                                <form th:action="@{|/member|}" method="get" th:method="get">
+                                                    <input type="hidden" th:value="${member.getId()}" name="id" id="id">
                                                     <button type="submit" class="btn btn-primary">修改信息</button>
                                                 </form>
                                             </td>

@@ -42,12 +42,12 @@ public class SliderimageController {
 //     <form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="get" th:method="get">
 //        <button type="submit" >修改信息</button>
 //     </form>
-    @GetMapping(value = "/sliderimage/{sliderimage_id}")
-    public String getSliderimage(@PathVariable("sliderimage_id") Integer sliderimage_id,
+    @GetMapping(value = "/sliderimage")
+    public String getSliderimage(@RequestParam("sliderimage_id") Integer sliderimage_id,
                                  Model model){
         Sliderimage sliderimage = sliderimageRespository.findOne(sliderimage_id);
         model.addAttribute("sliderimage",sliderimage);
-        return "test";
+        return "show_sliderimage";
     }
 
     /**
@@ -74,10 +74,12 @@ public class SliderimageController {
      */
     @PutMapping(value = "/sliderimage/update/{sliderimage_id}")
     public String updateSliderimage(@PathVariable("sliderimage_id") Integer sliderimage_id,
-                                    Sliderimage sliderimage){
+                                    Sliderimage sliderimage,MultipartFile file){
+
         sliderimage.setSliderimage_id(sliderimage_id);
-        sliderimageRespository.save(sliderimage);
-        return "";
+        String result = sliderimageService.insertSliderimage(sliderimage,file);
+
+        return "redirect:/sliderimages";
     }
 
     /**

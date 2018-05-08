@@ -45,12 +45,12 @@ public class MemberController {
 //<form th:action="@{|/member/${member.getId()}|}" method="get" th:method="get">
 //    <button type="submit" >修改信息</button>
 //</form>
-    @GetMapping(value = "/member/{id}")
-    public String  getMember(@PathVariable("id") Integer id,
+    @GetMapping("/member")
+    public String  getMember(@RequestParam("id") Integer id,
                             Model model){
         Member member = memberRespository.findOne(id);
         model.addAttribute("member",member);
-        return "test";
+        return "show_member";
     }
 
     /**
@@ -92,10 +92,12 @@ public class MemberController {
      */
     @PutMapping(value = "/member/update/{id}")
     public String updateMember(@PathVariable("id") Integer id,
-                               Member member){
+                               Member member,MultipartFile file){
+
         member.setId(id);
-        memberRespository.save(member);
-        return "";
+        String result = memberService.insertMember(member,file);
+
+        return "redirect:/members";
     }
 
 }

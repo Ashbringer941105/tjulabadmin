@@ -537,7 +537,8 @@
                                             <td th:text="${sliderimage.getSliderimage_info()}"></td>
                                             <td th:text="${sliderimage.getSliderimage_date()}"></td>
                                             <td >
-                                                <form th:action="@{|/sliderimage/${sliderimage.getSliderimage_id()}|}" method="get" th:method="get">
+                                                <form th:action="@{|/sliderimage|}" method="get" th:method="get">
+                                                    <input type="hidden" th:value="${sliderimage.getSliderimage_id()}" name="id" id="id">
                                                     <button type="submit" class="btn btn-primary">修改信息</button>
                                                 </form>
                                             </td>

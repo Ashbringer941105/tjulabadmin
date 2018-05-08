@@ -41,10 +41,12 @@ public class ProjectController {
      * @param project_id
      * @return
      */
-    @GetMapping(value = "/project/{project_id}")
-    public Project getProject(@PathVariable("project_id") Integer project_id){
+    @GetMapping(value = "/project")
+    public String getPaper(@RequestParam("project_id") Integer project_id,
+                           Model model){
         Project project = projectRespository.findOne(project_id);
-        return  project;
+        model.addAttribute("project",project);
+        return "show_project";
     }
 
     /**
@@ -70,10 +72,11 @@ public class ProjectController {
      */
     @PutMapping(value = "/project/update/{project_id}")
     public String updateProject(@PathVariable("project_id") Integer project_id,
-                                Project project){
+                                Project project,MultipartFile file){
         project.setProject_id(project_id);
-        projectRespository.save(project);
-        return "";
+        String result = projectService.insertProject(project,file);
+
+        return "redirect:/projects";
     }
 
     /**
