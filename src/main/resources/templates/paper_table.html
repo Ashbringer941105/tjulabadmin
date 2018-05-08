@@ -532,7 +532,7 @@
                                             <td th:text="${paper.getPaper_date()}"></td>
                                             <td>
                                                 <form th:action="@{|/paper|}" method="get" th:method="get">
-                                                    <input type="hidden" th:value="${paper.getPaper_id()}" name="id" id="id">
+                                                    <input type="hidden" th:value="${paper.getPaper_id()}" name="paper_id" id="paper_id">
                                                     <button type="submit" class="btn btn-primary">修改论文信息</button>
                                                 </form>
                                             </td>
